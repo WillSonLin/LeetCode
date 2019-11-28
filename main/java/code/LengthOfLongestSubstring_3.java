@@ -27,9 +27,6 @@ public class LengthOfLongestSubstring_3 {
                         if(count<list.size()){
                             count = list.size();
                         }
-                        if(i==list.size()-1){
-                            break;
-                        }
                         for(j=i+1;j<list.size();j++){
                             tempList.add(list.get(j));
                         }
