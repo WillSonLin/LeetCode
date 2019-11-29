@@ -9,7 +9,7 @@ public class LengthOfLongestSubstring_3 {
 
     public static void main(String[] args) {
         System.out.println(LengthOfLongestSubstring("pwwkew"));
-        //System.out.println(LengthOfLongestSubstringFast("pwwkew"));
+        System.out.println(LengthOfLongestSubstringFast("pwwkew"));
     }
 
     public static Integer LengthOfLongestSubstring(String s){
@@ -55,12 +55,12 @@ public class LengthOfLongestSubstring_3 {
         int n = s.length(), ans = 0;
         Map<Character, Integer> map = new HashMap<>(); // current index of character
         // try to extend the range [i, j]
-        for (int j = 0, i = 0; j < n; j++) {
-            if (map.containsKey(s.charAt(j))) {
-                i = Math.max(map.get(s.charAt(j)), i);
+        for (int start = 0, end = 0; start < n; start++) {
+            if (map.containsKey(s.charAt(start))) {
+                end = Math.max(map.get(s.charAt(start)), end);
             }
-            ans = Math.max(ans, j - i + 1);
-            map.put(s.charAt(j), j + 1);
+            ans = Math.max(ans, start - end + 1);
+            map.put(s.charAt(start), start + 1);
         }
         return ans;
     }
